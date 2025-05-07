@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 180 82% 32%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -96,6 +99,40 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+  }
+  
+  .stat-number {
+    @apply text-4xl md:text-5xl font-bold font-display text-trio-teal;
+  }
+  
+  .container {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+}
+
+.process-step {
+  @apply relative pl-16 pb-8;
+}
+
+.process-step::before {
+  content: attr(data-step);
+  @apply absolute left-0 top-0 w-12 h-12 rounded-full bg-trio-teal text-white flex items-center justify-center font-display text-2xl font-bold;
+}
+
+.process-step:not(:last-child)::after {
+  content: "";
+  @apply absolute left-6 top-12 bottom-0 w-0.5 bg-trio-teal/30;
+}
+
+.faq-item {
+  @apply border-b border-gray-200 py-5;
+}
+
+.faq-item:last-child {
+  @apply border-b-0;
 }
