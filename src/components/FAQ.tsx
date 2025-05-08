@@ -1,36 +1,6 @@
 
 import { useState } from 'react';
-
-interface FAQItemProps {
-  question: string;
-  answer: string;
-  isOpen: boolean;
-  onClick: () => void;
-}
-
-const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
-  return (
-    <div className="faq-item">
-      <button
-        className="w-full flex justify-between items-center text-left focus:outline-none"
-        onClick={onClick}
-      >
-        <h3 className="text-lg md:text-xl font-medium text-trio-charcoal">{question}</h3>
-        <svg
-          className={`w-5 h-5 text-trio-teal transition-transform ${isOpen ? 'transform rotate-180' : ''}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-      <div className={`mt-2 text-gray-600 transition-all ${isOpen ? 'block opacity-100' : 'hidden opacity-0'}`}>
-        <p>{answer}</p>
-      </div>
-    </div>
-  );
-};
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -60,19 +30,32 @@ const FAQ = () => {
 
   return (
     <section className="py-16 bg-gray-50">
-      <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-trio-charcoal">Frequently Asked Questions</h2>
-        
-        <div className="max-w-3xl mx-auto">
-          {faqItems.map((item, index) => (
-            <FAQItem
-              key={index}
-              question={item.question}
-              answer={item.answer}
-              isOpen={openIndex === index}
-              onClick={() => handleToggle(index)}
+      <div className="container mx-auto grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-trio-charcoal">Frequently Asked Questions</h2>
+          
+          <div className="mb-8">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Business professionals discussing real estate investment"
+              className="rounded-lg shadow-md"
             />
-          ))}
+          </div>
+        </div>
+        
+        <div>
+          <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
+            {faqItems.map((item, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger className="text-lg md:text-xl font-medium text-trio-charcoal">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>
