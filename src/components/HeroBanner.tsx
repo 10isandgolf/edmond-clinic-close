@@ -28,7 +28,7 @@ const HeroBanner = () => {
             Sold in 23 Days: Edmond Medical Office @ 7.3% Cap
           </h1>
           <p className="text-xl md:text-2xl mb-8 font-light">
-            Learn the 4-step process that let a 16-year owner retire with top dollar—even in a rising-rate market.
+            Learn Our 4-Step Process That Allows For Legacy Owners To Retire With Top Dollar—Even In A Rising-Rate Market.
           </p>
           <Button 
             onClick={scrollToForm}

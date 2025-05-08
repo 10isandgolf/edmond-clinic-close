@@ -42,7 +42,7 @@ const FAQ = () => {
     },
     {
       question: "Can you help find a 1031 exchange buyer?",
-      answer: "Absolutely. We maintain a curated database of 1031 buyers actively seeking medical office properties. In the Edmond clinic sale, we specifically matched with a 1031 exchange buyer who needed to close within a tight timeline, creating a win-win scenario for both parties."
+      answer: "Absolutely. We maintain a curated database of 1031 buyers actively seeking medical office properties. In the Edmond clinic sale, we specifically solicited offers from 1031 exchange buyers who needed to close within tight timelines, creating opportunities for both parties."
     },
     {
       question: "What are cap rate trends looking like for 2025?",

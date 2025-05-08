@@ -28,7 +28,7 @@ const ClientFeedback = () => {
               />
             </div>
             <div className="ml-4">
-              <p className="text-base font-semibold text-gray-900">Mercy Health Property Owner</p>
+              <p className="text-base font-semibold text-gray-900">Medical Property Owner</p>
               <p className="text-sm text-gray-600">16-year Investment Partner</p>
             </div>
           </div>
